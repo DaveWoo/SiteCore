@@ -1,0 +1,8 @@
+*.vs
+/packages
+/SiteCore.DataAccess/bin
+/SiteCore.DataAccess/obj
+/SiteCore.Utils/bin
+/SiteCore.Utils/obj
+/SiteCore.WebApi/bin
+/SiteCore.WebApi/obj
