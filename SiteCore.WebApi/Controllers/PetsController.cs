@@ -19,7 +19,7 @@ namespace WebApiSample.Api._21.Controllers
             _repository = repository;
         }
 
-        [HttpGet]
+        [HttpGet, ActionName("g")]
         public async Task<ActionResult<List<Pet>>> GetAllAsync()
         {
             return await _repository.GetPetsAsync();
@@ -41,8 +41,8 @@ namespace WebApiSample.Api._21.Controllers
         }
 
         [HttpPost]
-        [ProducesResponseType(200)]
-        [ProducesResponseType(400)]
+        //[ValidateAntiForgeryToken]
+        ///Prevent xsrf atteck with property ValidateAntiForgeryToken
         public async Task<ActionResult<Pet>> CreateAsync([FromBody]Pet pet)
         {
             if (!ModelState.IsValid)
