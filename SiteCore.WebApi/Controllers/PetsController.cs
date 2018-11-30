@@ -7,9 +7,10 @@ using WebApiSample.DataAccess.Repositories;
 namespace WebApiSample.Api._21.Controllers
 {
     #region snippet_PetsController
-    [Produces("application/json")]
+    //[Produces("application/json")]
     [Route("api/[controller]")]
-    public class PetsController : ControllerBase
+    [ApiController]
+    public class PetsController : Controller
     {
         private readonly PetsRepository _repository;
 
@@ -25,6 +26,7 @@ namespace WebApiSample.Api._21.Controllers
         }
 
         [HttpGet("{id}")]
+        [ProducesResponseType(200)]
         [ProducesResponseType(404)]
         public async Task<ActionResult<Pet>> GetByIdAsync(int id)
         {
@@ -39,8 +41,9 @@ namespace WebApiSample.Api._21.Controllers
         }
 
         [HttpPost]
+        [ProducesResponseType(200)]
         [ProducesResponseType(400)]
-        public async Task<ActionResult<Pet>> CreateAsync(Pet pet)
+        public async Task<ActionResult<Pet>> CreateAsync([FromBody]Pet pet)
         {
             if (!ModelState.IsValid)
             {

@@ -12,16 +12,10 @@ namespace WebApiSample.Api._21.Controllers
         #region snippet_ActionsCausingExceptions
         // Don't do this. All of the following actions result in an exception.
         [HttpPost]
-        public IActionResult Action1(Product product, 
-                                     Order order) => null;
-
+        public IActionResult Action1(Pet pet) => null;
+        
         [HttpPost]
-        public IActionResult Action2(Product product, 
-                                     [FromBody] Order order) => null;
-
-        [HttpPost]
-        public IActionResult Action3([FromBody] Product product, 
-                                     [FromBody] Order order) => null;
+        public IActionResult Action3([FromBody] Pet pet) => null;
         #endregion
     }
 }

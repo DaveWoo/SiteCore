@@ -69,7 +69,7 @@ namespace WebApiSample.Api._21
             {
                 //Using 'http' in develop and 'https' in production
                 //var schemes = env.IsDevelopment() ? new[] { "http" } : new[] { "https" };
-                var schemes = new[] { "https", "http" };
+                var schemes = new[] { "http", "https" };
                 c.PreSerializeFilters.Add((swagger, httpReq) => swagger.Schemes = schemes);
             });
 

@@ -34,7 +34,6 @@ namespace WebApiSample.Api._21
         {
             #region Binding dao
 
-            services.AddScoped<ProductsRepository>();
             services.AddScoped<PetsRepository>();
         
             //services.AddDbContext<SiteCoreContext>(opt =>
