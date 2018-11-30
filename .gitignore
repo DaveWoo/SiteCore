@@ -7,3 +7,5 @@
 /SiteCore.WebApi/bin
 /SiteCore.WebApi/obj
 /SiteCore.WebApi/Migrations
+/SiteCore.WebApi.Tests/bin/Debug/netcoreapp2.1
+/SiteCore.WebApi.Tests/obj

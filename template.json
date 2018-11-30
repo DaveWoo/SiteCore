@@ -1,0 +1,9 @@
+{
+  "$schema": "http://json.schemastore.org/template",
+  "author": "Dave",
+  "classifications": [ ".netcore", "skelton", "dao,webapi", "Code first" ],
+  "identity": "SiteCore.ConsoleTemplate.CSharp",
+  "name": "web api template including DAO",
+  "shortName": "webapiX",
+  "sourceName": "Sayedha.StarterWeb"
+}

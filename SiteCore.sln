@@ -9,6 +9,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SiteCore.DataAccess", "Site
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SiteCore.WebApi", "SiteCore.WebApi\SiteCore.WebApi.csproj", "{55164E3F-DC93-48DA-BAA1-FD7A3DE232DA}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SiteCore.WebApi.Tests", "SiteCore.WebApi.Tests\SiteCore.WebApi.Tests.csproj", "{A7CC4716-A57D-437A-B67B-6DE99761DFEB}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -27,6 +29,10 @@ Global
 		{55164E3F-DC93-48DA-BAA1-FD7A3DE232DA}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{55164E3F-DC93-48DA-BAA1-FD7A3DE232DA}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{55164E3F-DC93-48DA-BAA1-FD7A3DE232DA}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A7CC4716-A57D-437A-B67B-6DE99761DFEB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A7CC4716-A57D-437A-B67B-6DE99761DFEB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A7CC4716-A57D-437A-B67B-6DE99761DFEB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A7CC4716-A57D-437A-B67B-6DE99761DFEB}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
