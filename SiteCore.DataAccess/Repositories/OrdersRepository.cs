@@ -9,9 +9,9 @@ namespace WebApiSample.DataAccess.Repositories
 {
     public class OrdersRepository
     {
-        private readonly OrderContext _context;
+        private readonly SiteCoreContext _context;
 
-        public OrdersRepository(OrderContext context)
+        public OrdersRepository(SiteCoreContext context)
         {
             _context = context;
 

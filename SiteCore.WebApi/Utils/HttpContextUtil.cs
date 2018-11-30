@@ -11,7 +11,5 @@ namespace WebApiSample.Api._21
         }
 
         public static HttpContext HttpContext => _accessor.HttpContext;
-
-
     }
 }

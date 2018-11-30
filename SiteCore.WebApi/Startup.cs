@@ -36,12 +36,17 @@ namespace WebApiSample.Api._21
 
             services.AddScoped<ProductsRepository>();
             services.AddScoped<PetsRepository>();
+        
+            //services.AddDbContext<SiteCoreContext>(opt =>
+            //    opt.UseInMemoryDatabase("ProductInventory"));
+            //services.AddDbContext<SiteCoreContext>(opt =>
+            //    opt.UseInMemoryDatabase("PetInventory"));
 
-            services.AddDbContext<ProductContext>(opt =>
-                opt.UseInMemoryDatabase("ProductInventory"));
-            services.AddDbContext<PetContext>(opt =>
-                opt.UseInMemoryDatabase("PetInventory"));
-
+            // Register my database context as .NET Microservices with the .net core framework in order to access my database within my application. 
+            var connection = Configuration.GetConnectionString("DefaultConnection");
+            services.AddDbContext<SiteCoreContext>(
+                 options => options.UseSqlServer(connection, b => b.MigrationsAssembly("SiteCore.WebApi"))
+            );
             #endregion
 
             #region snippet_SetCompatibilityVersion
@@ -55,26 +60,12 @@ namespace WebApiSample.Api._21
             // Add our Config object so it can be injected
             services.Configure<AppSettings>(Configuration.GetSection("AppSettings"));
 
-            // Register my database context as .NET Microservices with the .net core framework in order to access my database within my application. 
-            services.AddDbContext<OrderContext>(
-                options => options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection")));
-            services.AddDbContext<PetContext>(
-                options => options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection")));
-            services.AddDbContext<ProductContext>(
-                options => options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection")));
-            
+            #region Swagger
             // add addtional info including overview, Auth, summary of api 
             // which added by dave in file SwaggerServiceExtensions.cs
             services.AddSwaggerDocumentation();
-
-            services.AddSwaggerGen(c =>
-            {
-                c.SwaggerDoc("v1", new Info
-                {
-                    Title = "ASP.NET Core 2.1+ Web API",
-                    Version = "v1"
-                });
-            });
+     
+            #endregion
 
             #region snippet_ConfigureApiBehaviorOptions
             services.Configure<ApiBehaviorOptions>(options =>
@@ -84,6 +75,9 @@ namespace WebApiSample.Api._21
                 options.SuppressModelStateInvalidFilter = true;
             });
             #endregion
+
+            // binding httpConext
+            services.AddSingleton<IHttpContextAccessor, HttpContextAccessor>();
         }
 
         public void Configure(IApplicationBuilder app, IHostingEnvironment env)
@@ -117,7 +111,7 @@ namespace WebApiSample.Api._21
                     template: "{controller=Home}/{action=Index}/{id?}");
             });
 
-            // 
+            // '            
             HttpContextUtil.Configure(app.ApplicationServices.GetRequiredService<IHttpContextAccessor>());
 
         }

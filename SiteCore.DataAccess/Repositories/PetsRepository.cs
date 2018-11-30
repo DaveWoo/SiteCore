@@ -8,9 +8,9 @@ namespace WebApiSample.DataAccess.Repositories
 {
     public class PetsRepository
     {
-        private readonly PetContext _context;
+        private readonly SiteCoreContext _context;
 
-        public PetsRepository(PetContext context)
+        public PetsRepository(SiteCoreContext context)
         {
             _context = context;
 

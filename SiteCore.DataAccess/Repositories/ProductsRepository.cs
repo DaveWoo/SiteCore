@@ -8,9 +8,9 @@ namespace WebApiSample.DataAccess.Repositories
 {
     public class ProductsRepository
     {
-        private readonly ProductContext _context;
+        private readonly SiteCoreContext _context;
 
-        public ProductsRepository(ProductContext context)
+        public ProductsRepository(SiteCoreContext context)
         {
             _context = context;
 

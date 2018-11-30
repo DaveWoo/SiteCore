@@ -1,5 +1,5 @@
 ﻿--DB first
-Scaffold-DbContext "Data Source=.\sql14;Initial Catalog=CMT;User ID=sa;Password=Qwerty88!" Microsoft.EntityFrameworkCore.SqlServer -OutputDir Models\DB -force
+Scaffold-DbContext "Data Source=(local)\sql14;Initial Catalog=SiteCore;User ID=sa;Password=Qwerty88!" Microsoft.EntityFrameworkCore.SqlServer -OutputDir Models\DB -force
 or
 dotnet ef dbcontext scaffold "Data Source=.\sql14;Initial Catalog=CMT;User ID=sa;Password=Qwerty88!" Microsoft.EntityFrameworkCore.SqlServer -o Models -f
 
@@ -23,7 +23,7 @@ Install-Package Microsoft.EntityFrameworkCore.SqlServer.Design
 Install-Package Microsoft.EntityFrameworkCore.Tools
 
 add connectionstring into Startup()
- "Configuration.GetConnectionString("Data Source=.\sql14;Initial Catalog=CMT;User ID=sa;Password=Qwerty88!");"
+ "Configuration.GetConnectionString("Data Source=.\sql14;Initial Catalog=SiteCore;User ID=sa;Password=Qwerty88!");"
 
 .net download
  https://www.microsoft.com/net/download
@@ -34,3 +34,13 @@ Install-Package Swashbuckle.AspNetCore.Filters
 
 --view Intellisense 
 Install-Package Microsoft.AspNetCore.Razor.Tools
+
+
+Q:A network-related or instance-specific error occurred while establishing a connection to SQL Server. 
+The server was not found or was not accessible. Verify that the instance name is correct and 
+that SQL Server is configured to allow remote connections. 
+(provider: SQL Network Interfaces, error: 50 - Local Database Runtime error occurred. The specified LocalDB instance does not exist.
+A:To configure the remote access option
+In Object Explorer, right-click a server and select Properties.
+Click the Connections node.
+Under Remote server connections, select or clear the Allow remote connections to this server check box.
