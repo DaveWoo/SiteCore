@@ -35,6 +35,12 @@ Install-Package Swashbuckle.AspNetCore.Filters
 --view Intellisense 
 Install-Package Microsoft.AspNetCore.Razor.Tools
 
+--log
+Install-Package Install-Package log4net XXX
+Install-Package Microsoft.Extensions.Logging.Log4Net.AspNetCore  XX
+Install-Package NLog
+Install-Package NLog.Extensions.Logging -Pre
+
 
 Q:A network-related or instance-specific error occurred while establishing a connection to SQL Server. 
 The server was not found or was not accessible. Verify that the instance name is correct and 

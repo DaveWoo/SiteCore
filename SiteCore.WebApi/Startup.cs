@@ -5,9 +5,10 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
-using Swashbuckle.AspNetCore.Swagger;
+using Microsoft.Extensions.Logging;
+using NLog.Extensions.Logging;
+using SiteCore.WebApi.Utils;
 using WebApiSample.DataAccess;
-using WebApiSample.DataAccess.Models;
 using WebApiSample.DataAccess.Repositories;
 
 namespace WebApiSample.Api._21
@@ -35,7 +36,7 @@ namespace WebApiSample.Api._21
             #region Binding dao
 
             services.AddScoped<PetsRepository>();
-        
+
             //services.AddDbContext<SiteCoreContext>(opt =>
             //    opt.UseInMemoryDatabase("ProductInventory"));
             //services.AddDbContext<SiteCoreContext>(opt =>
@@ -63,7 +64,7 @@ namespace WebApiSample.Api._21
             // add addtional info including overview, Auth, summary of api 
             // which added by dave in file SwaggerServiceExtensions.cs
             services.AddSwaggerDocumentation();
-     
+
             #endregion
 
             #region snippet_ConfigureApiBehaviorOptions
@@ -79,8 +80,10 @@ namespace WebApiSample.Api._21
             services.AddSingleton<IHttpContextAccessor, HttpContextAccessor>();
         }
 
-        public void Configure(IApplicationBuilder app, IHostingEnvironment env)
+        public void Configure(IApplicationBuilder app, IHostingEnvironment env, ILoggerFactory loggerFactory)
         {
+            loggerFactory.AddNLog();//添加NLog
+
             if (env.IsDevelopment())
             {
                 app.UseDeveloperExceptionPage();

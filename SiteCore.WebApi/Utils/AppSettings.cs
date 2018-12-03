@@ -3,10 +3,11 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace WebApiSample.DataAccess.Models
+namespace SiteCore.WebApi.Utils
 {
     public class AppSettings
     {
-        public string db_connection_string { get; set; }
+        public string token { get; set; }
+        public bool EnableForwardHeader { get; set; }
     }
 }
